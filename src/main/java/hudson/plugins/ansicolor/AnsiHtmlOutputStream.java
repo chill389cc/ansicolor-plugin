@@ -234,7 +234,8 @@ public class AnsiHtmlOutputStream extends AnsiOutputStream {
             Integer defaultBg = colorMap.getDefaultBackground();
 
             if (defaultFg != null || defaultBg != null) {
-                openTag(new AnsiAttributeElement(AnsiAttrType.DEFAULT, "div", "style=\"" +
+                openTag(new AnsiAttributeElement(AnsiAttrType.DEFAULT, "span", "style=\"" +
+                        "display: inline-block;" +
                         (defaultBg != null ? "background-color: " + colorMap.getNormal(defaultBg) + ";" : "") +
                         (defaultFg != null ? "color: " + colorMap.getNormal(defaultFg) + ";" : "") + "\""));
             }
