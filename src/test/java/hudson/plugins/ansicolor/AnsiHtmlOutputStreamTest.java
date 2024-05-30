@@ -224,49 +224,49 @@ public class AnsiHtmlOutputStreamTest {
         // simple tests with dark theme, as there has been default foreground / background colors defined (in contrast to xterm scheme)
         assertThatAnnotateIs(AnsiColorMap.VGA,
                 "\033[7mon\033[moff",
-                "<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                   "<span style=\"background-color: #AAAAAA; color: #000000;\">on</span>off" +
-                "</div>");
+                "</span>");
 
         assertThatAnnotateIs(AnsiColorMap.VGA,
                 "\033[7mon\033[27moff",
-                "<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                   "<span style=\"background-color: #AAAAAA; color: #000000;\">on</span>off" +
-                "</div>");
+                "</span>");
 
         assertThatAnnotateIs(AnsiColorMap.VGA,
                 "\033[33;7mon\033[27moff",
-                "<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                   "<span style=\"color: #AA5500;\"></span>" +                                                          // unnecessary <span> tag, could be removed …
                   "<span style=\"background-color: #AA5500; color: #000000;\">on</span>" +
                   "<span style=\"color: #AA5500;\">off</span>" +
-                "</div>");
+                "</span>");
 
         assertThatAnnotateIs(AnsiColorMap.VGA,
                 "\033[7;33mon\033[27moff",
-                "<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                   "<span style=\"background-color: #AAAAAA; color: #000000;\">" +                                      // unnecessary <span> tag, could be removed / merged with the following <span>
                     "<span style=\"background-color: #AA5500;\">on</span>" +
                   "</span>" +
                   "<span style=\"color: #AA5500;\">off</span>" +
-                "</div>");
+                "</span>");
 
         assertThatAnnotateIs(AnsiColorMap.VGA,
                 "\033[41;7mon\033[27moff",
-                "<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                   "<span style=\"background-color: #AA0000;\"></span>" +                                               // unnecessary <span> tag, could be removed …
                   "<span style=\"background-color: #AAAAAA; color: #AA0000;\">on</span>" +
                   "<span style=\"background-color: #AA0000;\">off</span>" +
-                "</div>");
+                "</span>");
 
         assertThatAnnotateIs(AnsiColorMap.VGA,
                 "\033[7;41mon\033[27moff",
-                "<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                   "<span style=\"background-color: #AAAAAA; color: #000000;\">" +                                      // unnecessary <span> tag, could be removed / merged with the following <span>
                     "<span style=\"color: #AA0000;\">on</span>" +
                   "</span>" +
                   "<span style=\"background-color: #AA0000;\">off</span>" +
-                "</div>");
+                "</span>");
 
 
         // a bit more stress
@@ -539,9 +539,9 @@ public class AnsiHtmlOutputStreamTest {
     public void testDefaultColors() throws IOException {
         assertThat(
                 annotate("\033[32mtic\033[1mtac\033[39mtoe", AnsiColorMap.VGA),
-                is("<div style=\"background-color: #000000;color: #AAAAAA;\">" +
+                is("<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">" +
                         "<span style=\"color: #00AA00;\">tic<b>tac</b></span><b>toe</b>" +
-                        "</div>"));
+                        "</span>"));
     }
 
 

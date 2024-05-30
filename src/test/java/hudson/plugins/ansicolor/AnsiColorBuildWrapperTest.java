@@ -184,10 +184,10 @@ public class AnsiColorBuildWrapperTest {
             assertThat(
                 html.replaceAll("<!--.+?-->", ""),
                 allOf(
-                    containsString("<div style=\"background-color: #000000;color: #AAAAAA;\">White on black" + nl + "</div>"),
-                    containsString("<div style=\"background-color: #000000;color: #AAAAAA;\"><b><span style=\"color: #0000AA;\">Bold and blue on black" + nl + "</span></b></div>"),
+                    containsString("<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\">White on black" + nl + "</span>"),
+                    containsString("<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\"><b><span style=\"color: #0000AA;\">Bold and blue on black" + nl + "</span></b></span>"),
                     containsString(
-                        "<div style=\"background-color: #000000;color: #AAAAAA;\"><b><span style=\"color: #0000AA;\">Still bold and blue on black</span></b>Back to white on black" + nl + "</div>"
+                        "<span style=\"display: inline-block;background-color: #000000;color: #AAAAAA;\"><b><span style=\"color: #0000AA;\">Still bold and blue on black</span></b>Back to white on black" + nl + "</span>"
                     )
                 )
             );
